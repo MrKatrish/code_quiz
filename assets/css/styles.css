@@ -26,6 +26,10 @@ button {
   transition: background-color 0.1s;
 }
 
+#btn{
+  color: white;
+}
+
 button:hover {
   background-color: #8570a5;
 }
