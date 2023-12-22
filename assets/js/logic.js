@@ -72,11 +72,8 @@ function checkAnswer(choiceIndex) {
   if (choiceIndex === currentQuestion.correctAnswer) {
     // Increment score for correct answer
     score++;
-  } else {
-    // Subtract time for incorrect answer
-    timeRemaining -= 10;
   }
-
+  
   // Move to the next question
   currentQuestionIndex++;
 
