@@ -6,8 +6,12 @@ let timeRemaining;
 let currentQuestionIndex;
 let score;
 
+// Sound elements
+const correctSound = new Audio("./assets/sfx/correct.wav"); 
+const incorrectSound = new Audio("./assets/sfx/incorrect.wav"); 
 // Event listener for the "Start Quiz" button
 document.getElementById('start').addEventListener('click', startQuiz);
+
 // Function to start the quiz
 function startQuiz() {
   // Initialize variables
@@ -72,6 +76,11 @@ function checkAnswer(choiceIndex) {
   if (choiceIndex === currentQuestion.correctAnswer) {
     // Increment score for correct answer
     score++;
+    // Play correct sound
+    correctSound.play();
+  } else {
+    // Play incorrect sound
+    incorrectSound.play();
   }
 
   // Move to the next question
