@@ -15,7 +15,7 @@ document.getElementById('start').addEventListener('click', startQuiz);
 // Function to start the quiz
 function startQuiz() {
   // Initialize variables
-  timeRemaining = 60;
+  timeRemaining = 30;
   currentQuestionIndex = 0;
   score = 0;
 
@@ -78,9 +78,13 @@ function checkAnswer(choiceIndex) {
     score++;
     // Play correct sound
     correctSound.play();
+    // Display "Correct" message
+    displayFeedback("Correct");
   } else {
     // Play incorrect sound
     incorrectSound.play();
+    // Display "Wrong" message
+    displayFeedback("Wrong");
   }
 
   // Move to the next question
@@ -92,6 +96,18 @@ function checkAnswer(choiceIndex) {
   } else {
     endQuiz();
   }
+}
+
+// Function to display feedback (right or wrong)
+function displayFeedback(feedback) {
+  const feedbackElement = document.getElementById('feedback');
+  feedbackElement.textContent = feedback;
+  feedbackElement.classList.remove('hide');
+
+  // Hide feedback after a short delay (you can adjust the duration)
+  setTimeout(function () {
+    feedbackElement.classList.add('hide');
+  }, 1500); // 1500 milliseconds (1.5 seconds)
 }
 
 // Function to end the quiz
@@ -109,15 +125,23 @@ function endQuiz() {
 
 // Function to save the score
 function saveScore() {
-  const initialsInput = document.getElementById('initials');
+  const initialsInput = document.getElementById("initials");
   const initials = initialsInput.value.trim();
 
-  if (initials !== '') {
-    // Save the score and initials (you may use local storage or send it to a server)
-    // Example: localStorage.setItem('highScore', JSON.stringify({ initials, score }));
+  if (initials !== "") {
+    // Get existing highscores from local storage
+    const highscores = JSON.parse(localStorage.getItem("highscores")) || [];
+
+    // Add the current score to the highscores
+    highscores.push({ initials, score });
+
+    // Save the updated highscores to local storage
+    localStorage.setItem("highscores", JSON.stringify(highscores));
+
+    // Alert the user (you may customize this part)
     alert(`Score saved for ${initials}!`);
   } else {
-    alert('Please enter your initials.');
+    alert("Please enter your initials.");
   }
 }
 
