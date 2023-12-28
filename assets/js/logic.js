@@ -7,10 +7,12 @@ let currentQuestionIndex;
 let score;
 
 // Sound elements
-const correctSound = new Audio("./assets/sfx/correct.wav"); 
-const incorrectSound = new Audio("./assets/sfx/incorrect.wav"); 
-// Event listener for the "Start Quiz" button
+const correctSound = new Audio("./assets/sfx/correct.wav");
+const incorrectSound = new Audio("./assets/sfx/incorrect.wav");
+
+// Event listeners
 document.getElementById('start').addEventListener('click', startQuiz);
+document.getElementById('submit').addEventListener('click', saveScore);
 
 // Function to start the quiz
 function startQuiz() {
@@ -107,7 +109,7 @@ function displayFeedback(feedback) {
   // Hide feedback after a short delay (you can adjust the duration)
   setTimeout(function () {
     feedbackElement.classList.add('hide');
-  }, 1500); // 1500 milliseconds (1.5 seconds)
+  }, 1000);
 }
 
 // Function to end the quiz
@@ -144,6 +146,3 @@ function saveScore() {
     alert("Please enter your initials.");
   }
 }
-
-// Event listener for the submit button
-document.getElementById('submit').addEventListener('click', saveScore);
