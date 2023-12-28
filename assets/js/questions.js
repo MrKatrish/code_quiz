@@ -9,7 +9,7 @@ const questions = [
   },
   {
     title: 'Which of the following is a semantic element in HTML?',
-    choices: ['<div>', '<span>', '<article>', '<section>'],
+    choices: ['<div>', '<span>', '<article>', '<html>'],
     correctAnswer: 2,
   },
   {
