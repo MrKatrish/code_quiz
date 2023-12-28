@@ -41,11 +41,15 @@ To run this project locally, follow these steps:
 
 ## Features
 
-- **Timed Quiz:** The app starts a timer when the user begins the quiz, and time is subtracted for incorrect answers.
+- **Timed Quiz:** The app initiates a timer when the user starts the quiz, deducting time for incorrect answers.
 
-- **Multiple-Choice Questions:** Users are presented with a series of multiple-choice questions on JavaScript fundamentals.
+- **Multiple-Choice Questions:** Users encounter a series of multiple-choice questions covering JavaScript fundamentals.
 
-- **Score Saving:** After completing the quiz, users can save their initials and view their scores.
+- **Correct and Incorrect Answer Sounds:** Upon selecting a correct answer, a pleasant and affirmative sound is played. In the case of an incorrect answer, a distinctive and attention-grabbing sound is triggered.
+
+- **Solution Display after Answer:** Following the user's selection, a line of text appears, indicating whether the chosen answer was correct or incorrect.
+
+- **Score Saving:** Upon completing the quiz, users can save their initials and access their scores.
 
 ## Screenshot and links
 
