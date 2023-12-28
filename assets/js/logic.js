@@ -17,7 +17,7 @@ document.getElementById('submit').addEventListener('click', saveScore);
 // Function to start the quiz
 function startQuiz() {
   // Initialize variables
-  timeRemaining = 30;
+  timeRemaining = 120;
   currentQuestionIndex = 0;
   score = 0;
 
@@ -87,6 +87,12 @@ function checkAnswer(choiceIndex) {
     incorrectSound.play();
     // Display "Wrong" message
     displayFeedback("Wrong");
+
+    // Deduct 5 seconds for a wrong answer
+    timeRemaining -= 5;
+
+    // Update the timer display
+    document.getElementById('time').textContent = timeRemaining;
   }
 
   // Move to the next question
@@ -99,6 +105,7 @@ function checkAnswer(choiceIndex) {
     endQuiz();
   }
 }
+
 
 // Function to display feedback (right or wrong)
 function displayFeedback(feedback) {
